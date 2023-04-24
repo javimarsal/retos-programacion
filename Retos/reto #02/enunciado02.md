@@ -1,6 +1,6 @@
-# Reto #0: EL FAMOSO "FIZZ BUZZ”
+# Reto #2: LA SUCESIÓN DE FIBONACCI
 
-#### Dificultad: Fácil
+#### Dificultad: Difícil
 
 ## Enunciado
 

@@ -1,4 +1,4 @@
-# Reto #0: EL FAMOSO "FIZZ BUZZ”
+# Reto #0: EL FAMOSO "FIZZ BUZZ"
 
 #### Dificultad: Fácil
 
