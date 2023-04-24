@@ -1,27 +1,35 @@
 function isAnagram(firstWord, secondWord) {
-    // Convertir palabras en minúscula para evitar problemas con mayúsculas
+    // Convert words to lowercase to avoid problems with uppercase
     let lowercaseFirstWord = firstWord.toLowerCase()
     let lowercaseSecondWord = secondWord.toLowerCase()
 
-    // Dos palabras exactamente iguales no son anagrama
+    // Two equal words are not anagram
     if (lowercaseFirstWord === lowercaseSecondWord) return false
 
-    // Si ambas no tienen la misma longitud, no son anagrama
-    let lengthLowercaseFirstWord = lowercaseFirstWord.length
-    let lengthLowercaseSecondWord = lowercaseSecondWord.length
-    if (lengthLowercaseFirstWord !== lengthLowercaseSecondWord) return false
+    // Sort letters of both words and compare them
+    let sortedLowercaseFirstWord = sortLettersFromWord(lowercaseFirstWord)
+    let sortedLowercaseSecondWord = sortLettersFromWord(lowercaseSecondWord)
 
-    // No son iguales y tienen la misma longitud
-    // Recorrer primera palabra y comprobar que todas sus letras están en la segunda palabra
-    for (let letter of lowercaseFirstWord) {
-        if (!lowercaseSecondWord.includes(letter)) return false
-    }
+    return sortedLowercaseFirstWord === sortedLowercaseSecondWord
+        
+}
 
-    return true
+function sortLettersFromWord(word) {
+    let sortedArrayOfLetters = getArrayOfLetters(word).sort()
+
+    // Convert to String
+    let sortedArrayOfLetters_String = sortedArrayOfLetters.toString()
+
+    // Remove ',' from the converted Array
+    return sortedArrayOfLetters_String.replaceAll(',', '')
+}
+
+function getArrayOfLetters(word) {
+    return word.split('')
 }
 
 let firstWord = 'Formula'
-let secondWord = 'ulamorf'
+let secondWord = 'furmola'
 let anagram = isAnagram(firstWord, secondWord)
 
 console.log(`¿Las palabras ${firstWord} y ${secondWord} son anagramas?: ${anagram}`)
